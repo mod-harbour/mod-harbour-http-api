@@ -8,6 +8,7 @@ Mhha is not using Microsoft Internet Information Server (IIS), but can
 share same IP and PORT with IIS,wthout cause any conflict, the fact IIS is 
 using HTTP server API itself.
 
+
 ## mhha components
 
 - **mhha library** : Can be provided as static or dynamic library  and will 
@@ -30,4 +31,15 @@ using HTTP server API itself.
     performance as will be a pool of worker processes ready to attend 
     the requests.
 
+## Q&A
 
+
+- **What is the development environment used?**  
+    The 3 mhha components are totally written in C++, the mhha shared 
+    library obviously because is more easy to use the API components
+    as provided by the system. 
+
+    But for the other 2 executables the only reason they are written in C++ 
+    is to debug everything together with Visual Studio at least on the 
+    early stage of the development, but there is no reason to not rewrite 
+    later in harbour, so harbour programmers can manipulate more easy.
