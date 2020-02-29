@@ -1,14 +1,15 @@
-// dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
-
-BOOL APIENTRY DllMain( HMODULE hModule,
-                       DWORD  ul_reason_for_call,
-                       LPVOID lpReserved
-                     )
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------------------------
+BOOL APIENTRY DllMain( HMODULE hModule,DWORD  reason,LPVOID )
 {
-    switch (ul_reason_for_call)
+    switch (reason)
     {
     case DLL_PROCESS_ATTACH:
+    {
+       mhha::app_t::init_library(hModule);
+       break;
+    }
     case DLL_THREAD_ATTACH:
     case DLL_THREAD_DETACH:
     case DLL_PROCESS_DETACH:
@@ -16,4 +17,4 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     }
     return TRUE;
 }
-
+// ---------------------------------------------------------------------------------------------------------------------------------------
