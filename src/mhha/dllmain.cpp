@@ -7,7 +7,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,DWORD  reason,LPVOID )
     {
     case DLL_PROCESS_ATTACH:
     {
-       mhha::app_t::init_library(hModule);
+       mhha::common_lib_t::init_library(hModule);
        break;
     }
     case DLL_THREAD_ATTACH:

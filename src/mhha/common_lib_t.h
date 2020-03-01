@@ -2,23 +2,22 @@
 namespace mhha
 {
 	
-	class app_t
+	class common_lib_t
 	{
-		private :
+		protected :
 		std::filesystem::path m_mhha_folder  = L"";
 		std::filesystem::path m_app_folder   = L"";
-
-
 		// --------------------------------------------------------------------
 		public:
 		static void init_library(HMODULE hMhha);
+		common_lib_t* get(void);
 		// --------------------------------------------------------------------
 		private:
-		app_t(HMODULE hMhha );
-		~app_t();
+		common_lib_t(HMODULE hMhha );
+		~common_lib_t();
 		// --------------------------------------------------------------------
 		void init_mhha_dll_folder(HMODULE hMhha);
 
 	};
-	app_t* app(void);
+	
 }

@@ -1,33 +1,33 @@
 #include "pch.h"
 #include <assert.h>
 // ---------------------------------------------------------------------------------------------------------------------------------------
-static mhha::app_t * s_app = 0;
+static mhha::common_lib_t * s_common_lib = 0;
 // ---------------------------------------------------------------------------------------------------------------------------------------
-mhha::app_t* app(void)
+mhha::common_lib_t* mhha::common_lib_t::get(void)
 {
-	return s_app;
+	return s_common_lib;
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------
-void mhha::app_t::init_library(HMODULE hMhha)
+void mhha::common_lib_t::init_library(HMODULE hMhha)
 {
-	assert(!s_app);
-	if (!s_app)
+	assert(!s_common_lib);
+	if (!s_common_lib)
 	{
-		s_app = new app_t(hMhha);
+		s_common_lib = new common_lib_t(hMhha);
 	}
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------
-mhha::app_t::app_t(HMODULE hMhha)
+mhha::common_lib_t::common_lib_t(HMODULE hMhha)
 {
 	init_mhha_dll_folder(hMhha);
 	
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------
-mhha::app_t::~app_t()
+mhha::common_lib_t::~common_lib_t()
 {
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------
-void mhha::app_t::init_mhha_dll_folder(HMODULE hMhha)
+void mhha::common_lib_t::init_mhha_dll_folder(HMODULE hMhha)
 {
    
 	std::wstring buffer;
@@ -41,7 +41,3 @@ void mhha::app_t::init_mhha_dll_folder(HMODULE hMhha)
 }
 // ---------------------------------------------------------------------------------------------------------------------------------------
 
-app_t* mhha::app(void)
-{
-	return nullptr;
-}
